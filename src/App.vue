@@ -1,20 +1,24 @@
 <template>
-  <div id="app">
-    <hello></hello>
+  <div>
+    <div class="center">
+      <h1>Data Driven VueJs Dynamic Content Demo</h1>
+    </div>
+    <TableComponent :context="controls" :path="path"></TableComponent>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import TableComponent from './components/TableComponent'
 import axios from 'axios'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    TableComponent
   },
   data: () => ({
-    controls: []
+    controls: undefined,
+    path: undefined
   }),
   created() {
     axios.get(`/static/mini_model_ui_example.json`)
@@ -24,31 +28,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-h1, h2 {
-   font-weight: normal;
- }
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>

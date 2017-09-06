@@ -27,6 +27,9 @@ module.exports = {
     },
     symlinks: false
   },
+  node: {
+    fs: "empty"
+  },
   module: {
     rules: [
       {
